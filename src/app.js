@@ -1,9 +1,12 @@
 const express = require('express');
+const routes = require('./routes');
 
 class App {
 
-  constructor(){
+  constructor() {
     this.server = express();
+    this.server.use(express.json());
+    this.server.use(routes);
   }
 }
 
