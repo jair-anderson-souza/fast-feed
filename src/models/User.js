@@ -1,31 +1,19 @@
 const { Model, DataTypes } = require('sequelize');
 
-
 class User extends Model {
 
   static init(sequelize) {
     super.init({
-      name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: false
-      },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      password: {
-        type: DataTypes.VIRTUAL
-      },
-      password_hash: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      }
+      name: DataTypes.STRING,
+      email: DataTypes.STRING,
+      password: DataTypes.VIRTUAL,
+      password_hash: DataTypes.STRING
     }, {
-      sequelize
+      sequelize,
+      tableName: 'users'
     })
   }
 
 }
 
-module.exports = new User();
+module.exports = User;
