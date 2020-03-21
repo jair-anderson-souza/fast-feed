@@ -20,8 +20,17 @@ class SessionController {
       return res.send(401).json({ msg: 'login invalid' })
     }
 
-    return res.json({ user: user }, authConfig.secret, { expiresIn: authConfig.expiresIn });
-
+    const { id } = user;
+    return res.json(
+      {
+        user: {
+          id: id,
+          emal: email
+        },
+        token: jwt.sign({ id }, authConfig.secret, {
+          expiresIn: authConfig.expiresIn
+        })
+      });
   }
 }
 
