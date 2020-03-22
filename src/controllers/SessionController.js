@@ -14,7 +14,7 @@ class SessionController {
       password: Yup.string().required()
     })
     if(!await schema.isValid(req.body)){
-      return res.send(401).json({ msg: 'fields must be filled' })
+      return res.status(401).json({ msg: 'fields must be filled' })
     }
 
     const user = await User.findOne({ where: { email } });
