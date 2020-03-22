@@ -13,7 +13,7 @@ router.use(auth);
 router.get('/recipients', RecipientController.findAll);
 router.post('/recipients', RecipientController.store);
 router.put('/recipients/:id', RecipientController.update);
-router.delete('/recipients/:id', RecipientController.findAll);
+router.delete('/recipients/:id', RecipientController.delete);
 
 
 
